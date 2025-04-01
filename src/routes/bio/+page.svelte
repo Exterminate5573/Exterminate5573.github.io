@@ -28,32 +28,63 @@
         text-align: center;
         font-weight: bold;
     }
+    p {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    /* New styles for horizontal layout */
+    .icon-container {
+        display: flex;
+        justify-content: center;
+        gap: 15px; /* Space between icons */
+        margin-top: 20px;
+    }
+    .icon-container a img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .discord-widget {
+        width: 100%;
+        height: 100px;
+        border-radius: 10px;
+        margin-top: 20px;
+        border-width: 2px;
+        border-style: solid;
+    }
 </style>
 
 <!-- TODO: change to svgs? -->
 <img src={selectedTheme.backgroundImg} alt="background" />
 <div class="text-box" style="border-color: {selectedTheme.secondary}">
     <h1>Exterminate</h1>
+    <p>I use arch btw</p>
 
-    <a href="https://github.com/Exterminate5573/">
-        <img style="width: 32px; height: 32px;" src="https://cdn.simpleicons.org/github/white" alt="github" />
-    </a>
+    <div class="icon-container">
+        <a href="https://github.com/Exterminate5573/">
+            <img src="https://cdn.simpleicons.org/github/white" alt="github" />
+        </a>
+        <a href="https://discord.com/users/598354701536329728">
+            <img src="https://cdn.simpleicons.org/discord/white" alt="discord" />
+        </a>
+        <a href="https://namemc.com/profile/ImExterminate.1">
+            <img src="https://cdn.simpleicons.org/namemc/white" alt="namemc" />
+        </a>
+        <a href="https://tracker.gg/valorant/profile/riot/giggleshtter%236969/overview">
+            <img src="https://cdn.simpleicons.org/valorant/white" alt="valorant" />
+        </a>
+        <a href="">
+            <img src="https://cdn.simpleicons.org/steam/white" alt="steam" />
+        </a>
+    </div>
 
-    <a href="https://discord.com/users/598354701536329728">
-        <img style="width: 32px; height: 32px;" src="https://cdn.simpleicons.org/discord/white" alt="discord" />
-    </a>
+    <div style="width: 100%; height: 2px; background-color: {selectedTheme.secondary}; margin: 20px 0;"></div>
 
-    <a href="https://namemc.com/profile/ImExterminate.1">
-        <img style="width: 32px; height: 32px;" src="https://cdn.simpleicons.org/namemc/white" alt="namemc" />
-    </a>
-
-    <a href="https://tracker.gg/valorant/profile/riot/giggleshtter%236969/overview">
-        <img style="width: 32px; height: 32px;" src="https://cdn.simpleicons.org/valorant/white" alt="valorant" />
-    </a>
-
-    <a href="">
-        <img style="width: 32px; height: 32px;" src="https://cdn.simpleicons.org/steam/white" alt="steam" />
-    </a>
+    <!-- Add on discord widget -->
+    <div class="discord-widget" style="text-align: center; border-color: {selectedTheme.secondary}">
+        
+    </div>
 
 </div>
 

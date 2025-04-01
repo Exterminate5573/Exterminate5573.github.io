@@ -22,25 +22,17 @@
   <DarkMode /> 
 </Navbar>
 
-<!-- TODO: Scroll down in the page instead of completely changing it -->
+<div class="container mx-auto">
+  <h1 class="text-4xl font-bold text-center mt-20">Welcome to Exterminate</h1>
+  <p class="text-center mt-5">This is a simple website to demonstrate the use of SvelteKit and TailwindCSS</p>
+</div>
 
-{#if page.url.hash === "#" || page.url.hash === ""}
-  <div class="container mx-auto">
-    <h1 class="text-4xl font-bold text-center mt-20">Welcome to Exterminate</h1>
-    <p class="text-center mt-5">This is a simple website to demonstrate the use of SvelteKit and TailwindCSS</p>
-  </div>
-{/if}
+<div id="projects" class="container mx-auto">
+  <h1 class="text-4xl font-bold text-center mt-20">Projects</h1>
+  <p class="text-center mt-5">This is a simple website to demonstrate the use of SvelteKit and TailwindCSS</p>
+</div>
 
-{#if page.url.hash === "#projects"}
-  <div class="container mx-auto">
-    <h1 class="text-4xl font-bold text-center mt-20">Projects</h1>
-    <p class="text-center mt-5">This is a simple website to demonstrate the use of SvelteKit and TailwindCSS</p>
-  </div>
-{/if}
-
-{#if page.url.hash === "#socials"}
-  <div class="container mx-auto">
-    <h1 class="text-4xl font-bold text-center mt-20">Socials</h1>
-    <p class="text-center mt-5">This is a simple website to demonstrate the use of SvelteKit and TailwindCSS</p>
-  </div>
-{/if}
+<div id="socials" class="container mx-auto">
+  <h1 class="text-4xl font-bold text-center mt-20">Socials</h1>
+  <p class="text-center mt-5">This is a simple website to demonstrate the use of SvelteKit and TailwindCSS</p>
+</div>
