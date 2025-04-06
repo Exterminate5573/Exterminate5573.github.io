@@ -1,7 +1,20 @@
-<script>
-    import { themes } from './themes'
+<script lang="ts">
+    import { onMount } from 'svelte';
+    import { themes } from './themes';
 
-    let selectedTheme = themes[0]
+    let selectedTheme: any;
+    let isThemeLoaded = false;
+
+    onMount(() => {
+        // Select a random theme from the themes array on load
+        const selectedThemeIndex = Math.floor(Math.random() * themes.length);
+        selectedTheme = themes[selectedThemeIndex];
+        isThemeLoaded = true; // Mark theme as loaded
+    });
+
+    function addOnDiscord() {
+        window.open("https://discord.com/users/598354701536329728", "_blank");
+    }
 </script>
 
 <style>
@@ -52,12 +65,37 @@
         margin-top: 20px;
         border-width: 2px;
         border-style: solid;
+        display: flex;
+    }
+
+    .avatar-container {
+        position: relative;
+        display: inline-block;
+        margin-left: 10px;
+    }
+
+    .discord-avatar {
+        width: 76px;
+        height: 76px;
+        border-radius: 10px;
+        border-width: 2px;
+        margin-top: 10px;
+    }
+
+    .online-status {
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        border-radius: 9999px;
+        top: 73px;
+        right: -5px;
     }
 </style>
 
+{#if isThemeLoaded}
 <!-- TODO: change to svgs? -->
 <img src={selectedTheme.backgroundImg} alt="background" />
-<div class="text-box" style="border-color: {selectedTheme.secondary}">
+<div class="text-box" style="border-color: {selectedTheme.primary}">
     <h1>Exterminate</h1>
     <p>I use arch btw</p>
 
@@ -74,17 +112,35 @@
         <a href="https://tracker.gg/valorant/profile/riot/giggleshtter%236969/overview">
             <img src="https://cdn.simpleicons.org/valorant/white" alt="valorant" />
         </a>
-        <a href="">
+        <a href="https://steamcommunity.com/id/Exterminate5573/">
             <img src="https://cdn.simpleicons.org/steam/white" alt="steam" />
         </a>
     </div>
 
-    <div style="width: 100%; height: 2px; background-color: {selectedTheme.secondary}; margin: 20px 0;"></div>
+    <div style="width: 100%; height: 2px; background-color: {selectedTheme.primary}; margin: 20px 0;"></div>
 
     <!-- Add on discord widget -->
-    <div class="discord-widget" style="text-align: center; border-color: {selectedTheme.secondary}">
-        
+    <div class="discord-widget" style="text-align: center; border-color: {selectedTheme.primary}">
+        <!-- Avatar container -->
+        <div class="avatar-container">
+            <img class="discord-avatar" src="https://cdn.discordapp.com/avatars/598354701536329728/5b95a332d87d433802c302514a85dc0f.webp" alt="avatar" style="border-color: {selectedTheme.secondary};" />
+            <div class="online-status" style="background-color: rgb(22 163 74)"></div>
+        </div>
+
+        <div class="discord-text" style="margin-left: 10px; display: flex; flex-direction: column; align-items: flex-start;">
+            <p class="discord-displayname" style="font-size: 1.5rem; font-weight: bold;">Exterminate</p>
+            <p class="discord-username" style="font-size: 1rem;">@exterminate_</p>
+            <p class="discord-status" style="font-size: 1rem;">a</p>
+        </div>
+
+        <!-- TODO: Activity Status, Actually check if I am online -->
+
+        <div class="discord-addbtn" style="margin-left: auto; margin-right: 10px; display: flex; align-items: center;">
+            <button style="border-color: {selectedTheme.secondary}; border-width: 2px; color: white; padding: 10px 20px; border-radius: 5px; cursor: pointer;" on:click={addOnDiscord}>
+                Add on Discord
+            </button>
+        </div>
     </div>
 
 </div>
-
+{/if}
