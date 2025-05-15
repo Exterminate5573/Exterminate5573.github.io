@@ -2,19 +2,17 @@
     import { GradientButton, Alert, Card, Navbar, NavBrand, NavLi, NavUl, NavHamburger, Toast, DarkMode, ImagePlaceholder, P, Heading, Span } from 'flowbite-svelte';
     
     import { page } from '$app/state';
-    //TODO: https://svelte.dev/docs/kit/$app-state ???
-    //It seems to work
+
     const activeUrl = $derived(page.url.pathname)
-    //$: activeUrl = page.url.pathname;
 </script>
 
-<Navbar let:hidden let:toggle color="navbar" class="fixed top-0 left-0 right-0 z-50">
+<Navbar class="fixed top-0 left-0 right-0 z-50 bg-gray-100 dark:bg-gray-900">
   <NavBrand href="/">
-    <span class="self-center whitespace-nowrap text-xl font-semibold">Exterminate</span>
+    <Span class="self-center whitespace-nowrap text-xl font-semibold" gradient="fuchsiaToRose">Exterminate</Span>
   </NavBrand>
-  <NavHamburger on:click={toggle} />
-  <NavUl {hidden} {activeUrl}>
-    <NavLi href="/#">Home</NavLi>
+  <NavHamburger/>
+  <NavUl {activeUrl}>
+    <NavLi href="/#">About</NavLi>
     <NavLi href="/#projects">Projects</NavLi>
     <NavLi href="/#socials">Socials</NavLi>
   </NavUl>
@@ -23,7 +21,7 @@
 
 <div class="container mx-auto p-10 flex flex-wrap items-start">
   <div class="w-full md:w-2/3">
-    <Heading class="text-4xl font-bold text-left mt-20 text-black dark:text-white">Hi, I'm <!-- TODO: Add gradient when they fix span --> <Span >Exterminate</Span> 👋</Heading>
+    <Heading class="text-4xl font-bold text-left mt-20 text-black dark:text-white">Hi, I'm <Span gradient="fuchsiaToRose">Exterminate</Span> 👋</Heading>
     <P class="text-left mt-5 dark:text-white">
       I'm a passionate developer currently doing Year 12 VCE.
       I enjoy playing games and coding various projects.
@@ -35,13 +33,13 @@
     </P>
   </div>
   <div class="w-full md:w-1/3 mt-10 md:mt-0 py-20 p-5">
-    <ImagePlaceholder imgHeight=64></ImagePlaceholder>
+    <ImagePlaceholder imgOnly></ImagePlaceholder>
   </div>
 </div>
 
 <div id="projects" class="container mx-auto p-10 flex flex-wrap md:flex-nowrap items-start">
   <div class="w-full md:w-1/3 mt-10 md:mt-0 py-20">
-    <ImagePlaceholder imgHeight=64></ImagePlaceholder>
+    <ImagePlaceholder imgOnly></ImagePlaceholder>
   </div>
   <div class="w-full md:w-2/3 md:pl-10">
     <Heading class="text-4xl font-bold text-left mt-20 text-black dark:text-white">Projects</Heading>
@@ -58,7 +56,7 @@
 
 <div id="socials" class="container mx-auto text-center py-20">
   <Heading class="text-4xl font-bold text-black dark:text-white">Socials</Heading>
-  <P class="text-lg mt-5 dark:text-white">Connect with me on these platforms:</P>
+  <P class="text-lg mt-5 dark:text-white" align="center">Connect with me on these platforms:</P>
   <div class="flex justify-center mt-10 space-x-5">
     <GradientButton color="purpleToBlue" href="https://github.com/Exterminate5573" target="_blank" rel="noopener noreferrer">
       <img src="https://cdn.simpleicons.org/github/white" alt="GitHub" class="w-5 h-5 mr-2" />
